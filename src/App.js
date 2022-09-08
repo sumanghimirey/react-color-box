@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { useState } from "react"
+import Content from "./Content"
+import ColorInput from "./ColorInput"
+
+import './App.css'
+
+const App = () => {
+    const [styleName, setStyle] = useState('white')
+
+const handleOnchnage = (e) => {
+    const style = e.target.value;
+    setStyle(style)
+
 }
 
-export default App;
+return (
+
+    <div className="App">
+        <Content styleName={styleName}/>
+        <ColorInput handleOnchnage={handleOnchnage}/>
+    </div>
+)
+}   
+
+export default App
